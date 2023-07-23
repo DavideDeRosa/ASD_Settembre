@@ -4,6 +4,13 @@
  *  Matricola: 1054948
  *  Email: davide.derosa@studio.unibo.it
  * 
+ * Esecuzione:
+ * Per compilare: javac Esercizio2.java
+ * Per eseguire: java Esercizio2 <file input>
+ * Una volta avviato correttamente verrà mostrato un menù, scrivendo '1' e premendo invio si accederà alla prima funzione
+ * richiesta. Verranno successivamente richiesti i valori di 'a', 'b' e 's', uno alla volta. Verrà poi effettuata la stampa.
+ * Scrivendo '2', verrà richiesto il valore di 'c', per poi mostrare a schermo il risultato. Con '0' si termina l'esecuzione.
+ * 
  * Considerazioni e richieste extra:
  * Ho scelto di implementare il tutto attraverso l'utilizzo di un ArrayList di "Coppia", classe creata appositamente per mantenere
  * i dati inerenti alla coppia. Una volta caricate le diverse coppie dal file di input, viene mostrato all'utente un elenco di funzioni.
