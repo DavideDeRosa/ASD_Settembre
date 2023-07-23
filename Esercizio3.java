@@ -4,6 +4,10 @@
  *  Matricola: 1054948
  *  Email: davide.derosa@studio.unibo.it
  * 
+ * Esecuzione:
+ * Per compilare: javac Esercizio3.java
+ * Per eseguire: java Esercizio3 <file input>
+ * 
  * Considerazioni e richieste extra:
  * Ho scelto di implementare il tutto attraverso l'utilizzo di un algoritmo basato sul Binary Search con la tecnica del Divide-et-Impera,
  * come richiesto dalla traccia. La tecnica del Divide-et-Impera si basa su tre passaggi progressivi:
