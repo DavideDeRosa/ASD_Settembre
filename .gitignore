@@ -1,2 +1,3 @@
 *.class
 output1.txt
+.DS_Store
