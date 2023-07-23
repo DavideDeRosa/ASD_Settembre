@@ -7,7 +7,7 @@ Schema di base per ogni esercizio:
 -Esercizio1:
     ciao
 
--Esercizio2:
+-Esercizio2: (tieni a mente che c'è la possibilità di cambiare la soluzione, facendo quella con HashMap!)
     Ho scelto di implementare il tutto attraverso l'utilizzo di un ArrayList di "Coppia", classe creata appositamente per mantenere
     i dati inerenti alla coppia. Una volta caricate le diverse coppie dal file di input, viene mostrato all'utente un elenco di funzioni.
     La prima funzione richiede tre valori (a, b, s), che permettono successivamente di richiamare il metodo "find()". 
@@ -28,7 +28,21 @@ Schema di base per ogni esercizio:
     caricamento delle coppie dal file.
 
 -Esercizio3:
-    ciao
+    Ho scelto di implementare il tutto attraverso l'utilizzo di un algoritmo basato sul Binary Search con la tecnica del Divide-et-Impera,
+    come richiesto dalla traccia. La tecnica del Divide-et-Impera si basa su tre passaggi progressivi:
+        -DIVIDE: si divide il problema in sottoproblemi.
+        -IMPERA: si risolvono i sottoproblemi in maniera ricorsiva.
+        -COMBINA: si uniscono le soluzioni dei sottoproblemi per costruire la soluzione del problema originario.
+
+    Nel nostro caso specifico la suddivisione in sottoproblemi riguarda la suddivisione dell'Array in un Array più piccolo, sul quale
+    richiamiamo la funzione ricorsiva. Una volta risolti tutti i sottoproblemi, andiamo a sommare il numero dei dipendenti promossi
+    ottenuti tramite le diverse chiamate ricorsive.
+
+    Il costo computazionale del metodo "contaPromossi()" va calcolato attraverso l'utilizzo del Master Theorem.
+    L'equazione di ricorrenza di questo metodo è T(n) = T(n/2) + O(1), che in base al Master Theorem ha soluzione T(n) = O(log n).
+
+    Un altra possibile implementazione, quella iterativa, non avrebbe soddisfatto la richiesta della traccia di utilizzare la 
+    tecnica del Divide-et-Impera, pertanto è stata scartata a priori.
 
 -Esercizio4:
     ciao
