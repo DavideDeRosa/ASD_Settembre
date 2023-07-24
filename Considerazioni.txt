@@ -7,6 +7,50 @@ Schema di base per ogni esercizio:
 -Esercizio1:
     ciao
 
+-Esercizio2(ArrayList + ipotetico MinHeap):
+    Ho scelto di implementare il tutto attraverso l'utilizzo di un ArrayList di "Coppia", classe creata appositamente per mantenere
+    i dati inerenti alla coppia. Una volta caricate le diverse coppie dal file di input, viene mostrato all'utente un elenco di funzioni.
+    La prima funzione richiede tre valori (a, b, s), che permettono successivamente di richiamare il metodo "find()". 
+    Il metodo find() scorre tutta la lista per stampare ogni coppia che abbia il valore della chiave compreso tra a e b e la lunghezza
+    della stringa minore o uguale a s. Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi della lista.
+    La seconda funzione richiede un valore (c), che permette successivamente di richiamare il metodo "print()".
+    Il metodo print() scorre tutta la lista per stamapre ogni coppia che abbia il valore della chiave maggiore o uguale a c.
+    Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi della lista.
+    Per concludere, la funzione che carica tutte le coppie dal file di input ha costo computazionale O(n).
+    
+    Il costo computazionale della soluzione è quindi O(n).
+
+    Un altra possibile implementazione prevedeva l'utilizzo di un MinHeap per l'operazione 2 (è possibile trovare il metodo commentato
+    all'interno del codice). In questo caso il costo computazionale del metodo è O(k * log k), con k numero di coppie con valore della
+    chiave maggiore o uguale di c. Questa implementazione, nel caso pessimo (dove tutte le chiavi hanno valore maggiore o uguale a c), 
+    ha costo computazionale O(n * log n).
+
+-Esercizio3(basato su Ricerca Binaria):
+    Ho scelto di implementare il tutto attraverso l'utilizzo di un algoritmo basato sul Binary Search con la tecnica del Divide-et-Impera,
+    come richiesto dalla traccia. La tecnica del Divide-et-Impera si basa su tre passaggi progressivi:
+        -DIVIDE: si divide il problema in sottoproblemi.
+        -IMPERA: si risolvono i sottoproblemi in maniera ricorsiva.
+        -COMBINA: si uniscono le soluzioni dei sottoproblemi per costruire la soluzione del problema originario.
+
+    Nel nostro caso specifico la suddivisione in sottoproblemi riguarda la suddivisione dell'Array in un Array più piccolo, sul quale
+    richiamiamo la funzione ricorsiva. Una volta risolti tutti i sottoproblemi, andiamo a sommare il numero dei dipendenti promossi
+    ottenuti tramite le diverse chiamate ricorsive.
+
+    Il costo computazionale del metodo "contaPromossi()" va calcolato attraverso l'utilizzo del Master Theorem.
+    L'equazione di ricorrenza di questo metodo è T(n) = T(n/2) + O(1), che in base al Master Theorem ha soluzione T(n) = O(log n).
+
+    Un altra possibile implementazione, quella iterativa, non avrebbe soddisfatto la richiesta della traccia di utilizzare la 
+    tecnica del Divide-et-Impera, pertanto è stata scartata a priori.
+
+-Esercizio4(Bellman-Ford):
+    ciao
+
+-Esercizio5(Floyd-Warshall):
+    ciao
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Versioni vecchie o sbagliate:
+
 -Esercizio2(old, sbagliato il discorso sulla mappa):
     Ho scelto di implementare il tutto attraverso l'utilizzo di un ArrayList di "Coppia", classe creata appositamente per mantenere
     i dati inerenti alla coppia. Una volta caricate le diverse coppie dal file di input, viene mostrato all'utente un elenco di funzioni.
@@ -26,44 +70,3 @@ Schema di base per ogni esercizio:
     metodo specifico, specialmente quando il numero di coppie è molto grande.
     Non sarebbe però variato il costo computazionale finale (sempre O(n)), che viene influenzato principalmente dall'operazione di 
     caricamento delle coppie dal file.
-
--Esercizio2(MinHeap):
-    Ho scelto di implementare il tutto attraverso l'utilizzo di un ArrayList di "Coppia", classe creata appositamente per mantenere
-    i dati inerenti alla coppia. Una volta caricate le diverse coppie dal file di input, viene mostrato all'utente un elenco di funzioni.
-    La prima funzione richiede tre valori (a, b, s), che permettono successivamente di richiamare il metodo "find()". 
-    Il metodo find() scorre tutta la lista per stampare ogni coppia che abbia il valore della chiave compreso tra a e b e la lunghezza
-    della stringa minore o uguale a s. Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi della lista.
-    La seconda funzione richiede un valore (c), che permette successivamente di richiamare il metodo "print()".
-    Il metodo print() scorre tutta la lista per stamapre ogni coppia che abbia il valore della chiave maggiore o uguale a c.
-    Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi della lista.
-    Per concludere, la funzione che carica tutte le coppie dal file di input ha costo computazionale O(n).
-    
-    Il costo computazionale della soluzione è quindi O(n).
-
-    Un altra possibile implementazione prevedeva l'utilizzo di un MinHeap per l'operazione 2 (è possibile trovare il metodo commentato
-    all'interno del codice). In questo caso il costo computazionale del metodo è O(k * log k), con k numero di coppie con valore della
-    chiave maggiore o uguale di c. Questa implementazione, nel caso pessimo (dove tutte le chiavi hanno valore maggiore o uguale a c), 
-    ha costo computazionale O(n * log n).
-
--Esercizio3:
-    Ho scelto di implementare il tutto attraverso l'utilizzo di un algoritmo basato sul Binary Search con la tecnica del Divide-et-Impera,
-    come richiesto dalla traccia. La tecnica del Divide-et-Impera si basa su tre passaggi progressivi:
-        -DIVIDE: si divide il problema in sottoproblemi.
-        -IMPERA: si risolvono i sottoproblemi in maniera ricorsiva.
-        -COMBINA: si uniscono le soluzioni dei sottoproblemi per costruire la soluzione del problema originario.
-
-    Nel nostro caso specifico la suddivisione in sottoproblemi riguarda la suddivisione dell'Array in un Array più piccolo, sul quale
-    richiamiamo la funzione ricorsiva. Una volta risolti tutti i sottoproblemi, andiamo a sommare il numero dei dipendenti promossi
-    ottenuti tramite le diverse chiamate ricorsive.
-
-    Il costo computazionale del metodo "contaPromossi()" va calcolato attraverso l'utilizzo del Master Theorem.
-    L'equazione di ricorrenza di questo metodo è T(n) = T(n/2) + O(1), che in base al Master Theorem ha soluzione T(n) = O(log n).
-
-    Un altra possibile implementazione, quella iterativa, non avrebbe soddisfatto la richiesta della traccia di utilizzare la 
-    tecnica del Divide-et-Impera, pertanto è stata scartata a priori.
-
--Esercizio4:
-    ciao
-
--Esercizio5:
-    ciao
