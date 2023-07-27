@@ -76,6 +76,11 @@ public class Esercizio3 {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
 
+        if(args.length != 1){
+            System.out.println("Input errato!");
+            System.exit(1);
+        }
+        
         try {
             /*
              * Vengono dichiarate le variabili e gli oggetti necessarie all'implementazione.
