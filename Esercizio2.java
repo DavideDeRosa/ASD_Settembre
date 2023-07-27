@@ -105,7 +105,7 @@ public class Esercizio2 {
      * Viene effettuato il caricamento dei dati da File, creando una Coppia per ogni riga contenuta nel file dato in input.
      * Una volta creata la Coppia, viene inserita in un ArrayList.
      */
-    public static ArrayList<Coppia> carica(String file){
+    public static ArrayList<Coppia> letturaFile(String file){
         ArrayList<Coppia> dati = new ArrayList<>();
 
         try {
@@ -133,7 +133,7 @@ public class Esercizio2 {
             System.exit(1);
         }
 
-        ArrayList<Coppia> dati = carica(args[0]);
+        ArrayList<Coppia> dati = letturaFile(args[0]);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -146,6 +146,7 @@ public class Esercizio2 {
             int v = scanner.nextInt();
             
             if(v == 0){
+                scanner.close();
                 System.exit(0);
             }else if(v == 1){
                 System.out.println("Inserire il valore di a: ");
@@ -164,6 +165,11 @@ public class Esercizio2 {
             }else{
                 System.out.println("Comando non riconosciuto, riprovare!");
             }
+            
+            /*
+             * Viene chiuso lo Scanner utilizzato per la lettura del file di input.
+             */
+            scanner.close();
         }
    }
 }
