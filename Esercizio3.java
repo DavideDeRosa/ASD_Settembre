@@ -27,7 +27,6 @@
  */
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -35,11 +34,11 @@ public class Esercizio3 {
     
     /*
      * Viene implementato un algoritmo basato sul Binary Search di un Array con la tecnica Divide-et-Impera, come richiesto dalla traccia.
-     * Vengono passati come parametri l'array I, la soglia k, e i due indici sui quali si basa il Binary Search.
+     * Vengono passati come parametri l'array ordinato I, la soglia k, e i due indici sui quali si basa il Binary Search.
      */
     public static int contaPromossi(double[] I, double k, int start, int end){
         /*
-         * Questa condizione permette di concludere la ricorsione, essendo in una situazione di sottovettore vuoto.
+         * Questa condizione permette di concludere la ricorsione.
          */
         if(start > end){
             return 0;
@@ -79,7 +78,7 @@ public class Esercizio3 {
 
         try {
             /*
-             * Vengono dichiarate le variabili necessarie all'implementazione.
+             * Vengono dichiarate le variabili e gli oggetti necessarie all'implementazione.
              */
             Scanner s = new Scanner(new File(args[0]));
 
@@ -88,7 +87,7 @@ public class Esercizio3 {
             double k = 0;
 
             /*
-             * Viene effettuata la lettura da file del numero di dipendenti, del vettore I e della soglia k.
+             * Viene effettuata la lettura da file del numero di dipendenti, del vettore ordinato I e della soglia k.
              */
             while (s.hasNextLine()){
                 String line = s.nextLine().trim();
@@ -118,8 +117,8 @@ public class Esercizio3 {
              * Viene chiuso lo Scanner utilizzato per la lettura del file di input.
              */
             s.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File non trovato!");
+        } catch (Exception e) {
+            System.out.println("Caricamento del file non andato a buon fine!");
             System.exit(0);
         }
     }
