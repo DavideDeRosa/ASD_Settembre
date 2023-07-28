@@ -7,7 +7,7 @@ Schema di base per ogni esercizio:
 -Esercizio1:
     ciao
 
--Esercizio2(ArrayList + ipotetico MinHeap):
+-Esercizio2(ArrayList):
     Ho scelto di implementare il tutto attraverso l'utilizzo di un ArrayList di "Coppia", classe creata appositamente per mantenere
     i dati inerenti alla coppia. Una volta caricate le diverse coppie dal file di input, viene mostrato all'utente un elenco di funzioni.
     La prima funzione richiede tre valori (a, b, s), che permettono successivamente di richiamare il metodo "find()". 
@@ -20,10 +20,8 @@ Schema di base per ogni esercizio:
     
     Il costo computazionale della soluzione è quindi O(n).
 
-    Un altra possibile implementazione prevedeva l'utilizzo di un MinHeap per l'operazione 2 (è possibile trovare il metodo commentato
-    all'interno del codice). In questo caso il costo computazionale del metodo è O(k * log k), con k numero di coppie con valore della
-    chiave maggiore o uguale di c. Questa implementazione, nel caso pessimo (dove tutte le chiavi hanno valore maggiore o uguale a c), 
-    ha costo computazionale O(n * log n).
+    Altre possibili implementazioni prevedevano l'utilizzo di MinHeap o HashMap, che avrebbero ridotto il costo computazionale di alcune
+    operazioni, ma aumentato il costo dell'inserimento o di altre operazioni nei casi pessimi.
 
 -Esercizio3(basato su Ricerca Binaria):
     Ho scelto di implementare il tutto attraverso l'utilizzo di un algoritmo basato sul Binary Search con la tecnica del Divide-et-Impera,
