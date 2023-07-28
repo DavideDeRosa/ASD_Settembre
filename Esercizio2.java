@@ -24,16 +24,12 @@
  * 
  * Il costo computazionale della soluzione è quindi O(n).
  * 
- * Un altra possibile implementazione prevedeva l'utilizzo di un MinHeap per l'operazione 2 (è possibile trovare il metodo commentato
- * all'interno del codice). In questo caso il costo computazionale del metodo è O(k * log k), con k numero di coppie con valore della
- * chiave maggiore o uguale di c. Questa implementazione, nel caso pessimo (dove tutte le chiavi hanno valore maggiore o uguale a c), 
- * ha costo computazionale O(n * log n).
+ * Altre possibili implementazioni prevedevano l'utilizzo di MinHeap o HashMap, che avrebbero ridotto il costo computazionale di alcune
+ * operazioni, ma aumentato il costo dell'inserimento o di altre operazioni nei casi pessimi.
  */
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class Esercizio2 {
@@ -83,23 +79,6 @@ public class Esercizio2 {
             }
         }
     }
-
-    /* METODO CHE UTILIZZA UN MINHEAP PER L'OPERAZIONE 2
-    public static void print(ArrayList<Coppia> dati, int c){
-        PriorityQueue<Coppia> minHeap = new PriorityQueue<>(Comparator.comparingInt(coppia -> coppia.getX()));
-
-        for (Coppia coppia : dati) {
-            if (coppia.getX() >= c) {
-                minHeap.add(coppia);
-            }
-        }
-
-        while (!minHeap.isEmpty()) {
-            Coppia coppia = minHeap.poll();
-            System.out.println(coppia.getX() + " " + coppia.getQ());
-        }
-    }
-    */
     
     /*
      * Viene effettuato il caricamento dei dati da File, creando una Coppia per ogni riga contenuta nel file dato in input.
@@ -146,8 +125,7 @@ public class Esercizio2 {
             int v = scanner.nextInt();
             
             if(v == 0){
-                scanner.close();
-                System.exit(0);
+                break;
             }else if(v == 1){
                 System.out.println("Inserire il valore di a: ");
                 int a = scanner.nextInt();
@@ -165,11 +143,11 @@ public class Esercizio2 {
             }else{
                 System.out.println("Comando non riconosciuto, riprovare!");
             }
-            
-            /*
-             * Viene chiuso lo Scanner utilizzato per la lettura del file di input.
-             */
-            scanner.close();
         }
+        
+        /*
+         * Viene chiuso lo Scanner utilizzato per la lettura del file di input.
+         */
+        scanner.close();
    }
 }
