@@ -13,7 +13,6 @@
  */
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -30,7 +29,6 @@ public class Esercizio4 {
     private static Edge[] sp; //sp[v] e' l'arco che collega v e il suo genitore p[v]
     private static int source; 
     private static HashMap<String, Integer> nodi = new HashMap<>(); //HashMap utilizzata per convertire il nome del nodo in un indice numerico
-    private static ArrayList<Double> capacity = new ArrayList<>(); //ArrayList utilizzata per effettuare il calcolo della capacita' massima
 
     /*
      * Creazione classe Edge
@@ -51,6 +49,8 @@ public class Esercizio4 {
      * Viene effettuato il caricamento dei dati da File, inserendo gli archi nella LinkedList apposita(edges).
      */
     private static void letturaFile(String file){
+        double maxCapacity = -1;
+
         try{
             Scanner s = new Scanner(new File(file));
 
@@ -90,9 +90,12 @@ public class Esercizio4 {
                 int sourceNode = nodi.get(parts[2]);
                 int targetNode = nodi.get(parts[3]);
                 double preInstalledCapacity = Double.parseDouble(parts[5]);
-                capacity.add(preInstalledCapacity);
-                double weight = maxPreInstalledCapacity() / preInstalledCapacity;
-
+                
+                if(maxCapacity < preInstalledCapacity){
+                    maxCapacity = preInstalledCapacity;
+                }
+                
+                double weight = maxCapacity / preInstalledCapacity;
                 edges.add(new Edge(sourceNode, targetNode, weight));
                 edges.add(new Edge(targetNode, sourceNode, weight));
             }
@@ -105,18 +108,6 @@ public class Esercizio4 {
             System.out.println("Caricamento del file non andato a buon fine!");
             System.exit(0);
         }
-    }
-
-    /*
-     * Viene implementato un metodo per ottenere la massima capacita' preinstallata, scorrendo tutte le capacita' precedentemente
-     * aggiunte durante la creazione dei diversi archi.
-     */
-    private static double maxPreInstalledCapacity() {
-        double maxCapacity = Double.MIN_VALUE;
-        for (Double d : capacity) {
-            maxCapacity = Math.max(maxCapacity, d);
-        }
-        return maxCapacity;
     }
 
     /*
