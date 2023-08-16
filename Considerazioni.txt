@@ -7,21 +7,21 @@ Schema di base per ogni esercizio:
 -Esercizio1:
     ciao
 
--Esercizio2(ArrayList):
-    Ho scelto di implementare il tutto attraverso l'utilizzo di un ArrayList di "Coppia", classe creata appositamente per mantenere
+-Esercizio2:
+    Ho scelto di implementare il tutto attraverso l'utilizzo di un semplice Array di "Coppia", classe creata appositamente per mantenere
     i dati inerenti alla coppia. Una volta caricate le diverse coppie dal file di input, viene mostrato all'utente un elenco di funzioni.
     La prima funzione richiede tre valori (a, b, s), che permettono successivamente di richiamare il metodo "find()". 
-    Il metodo find() scorre tutta la lista per stampare ogni coppia che abbia il valore della chiave compreso tra a e b e la lunghezza
-    della stringa minore o uguale a s. Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi della lista.
+    Il metodo find() scorre tutto l'Array per stampare ogni coppia che abbia il valore della chiave compreso tra a e b e la lunghezza
+    della stringa minore o uguale a s. Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi dell'Array.
     La seconda funzione richiede un valore (c), che permette successivamente di richiamare il metodo "print()".
-    Il metodo print() scorre tutta la lista per stamapre ogni coppia che abbia il valore della chiave maggiore o uguale a c.
-    Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi della lista.
+    Il metodo print() scorre tutto l'Array per stamapre ogni coppia che abbia il valore della chiave maggiore o uguale a c.
+    Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi dell'Array.
     Per concludere, la funzione che carica tutte le coppie dal file di input ha costo computazionale O(n).
     
     Il costo computazionale della soluzione è quindi O(n).
-
-    Altre possibili implementazioni prevedevano l'utilizzo di MinHeap o HashMap, che avrebbero ridotto il costo computazionale di alcune
-    operazioni, ma aumentato il costo dell'inserimento o di altre operazioni nei casi pessimi.
+    
+    Altre possibili implementazioni prevedevano l'utilizzo di ArrayList, MinHeap o HashMap, con costi computazionali simili e in
+    alcuni casi maggiori.
 
 -Esercizio3(basato su Ricerca Binaria):
     Ho scelto di implementare il tutto attraverso l'utilizzo di un algoritmo basato sul Binary Search con la tecnica del Divide-et-Impera,
@@ -68,3 +68,19 @@ Versioni vecchie o sbagliate:
     metodo specifico, specialmente quando il numero di coppie è molto grande.
     Non sarebbe però variato il costo computazionale finale (sempre O(n)), che viene influenzato principalmente dall'operazione di 
     caricamento delle coppie dal file.
+
+-Esercizio2(ArrayList):
+    Ho scelto di implementare il tutto attraverso l'utilizzo di un ArrayList di "Coppia", classe creata appositamente per mantenere
+    i dati inerenti alla coppia. Una volta caricate le diverse coppie dal file di input, viene mostrato all'utente un elenco di funzioni.
+    La prima funzione richiede tre valori (a, b, s), che permettono successivamente di richiamare il metodo "find()". 
+    Il metodo find() scorre tutta la lista per stampare ogni coppia che abbia il valore della chiave compreso tra a e b e la lunghezza
+    della stringa minore o uguale a s. Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi della lista.
+    La seconda funzione richiede un valore (c), che permette successivamente di richiamare il metodo "print()".
+    Il metodo print() scorre tutta la lista per stamapre ogni coppia che abbia il valore della chiave maggiore o uguale a c.
+    Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi della lista.
+    Per concludere, la funzione che carica tutte le coppie dal file di input ha costo computazionale O(n).
+    
+    Il costo computazionale della soluzione è quindi O(n).
+
+    Altre possibili implementazioni prevedevano l'utilizzo di MinHeap o HashMap, che avrebbero ridotto il costo computazionale di alcune
+    operazioni, ma aumentato il costo dell'inserimento o di altre operazioni nei casi pessimi.
