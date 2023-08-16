@@ -12,24 +12,23 @@
  * Scrivendo '2', verrà richiesto il valore di 'c', per poi mostrare a schermo il risultato. Con '0' si termina l'esecuzione.
  * 
  * Considerazioni e richieste extra:
- * Ho scelto di implementare il tutto attraverso l'utilizzo di un ArrayList di "Coppia", classe creata appositamente per mantenere
+ * Ho scelto di implementare il tutto attraverso l'utilizzo di un semplice Array di "Coppia", classe creata appositamente per mantenere
  * i dati inerenti alla coppia. Una volta caricate le diverse coppie dal file di input, viene mostrato all'utente un elenco di funzioni.
  * La prima funzione richiede tre valori (a, b, s), che permettono successivamente di richiamare il metodo "find()". 
- * Il metodo find() scorre tutta la lista per stampare ogni coppia che abbia il valore della chiave compreso tra a e b e la lunghezza
- * della stringa minore o uguale a s. Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi della lista.
+ * Il metodo find() scorre tutto l'Array per stampare ogni coppia che abbia il valore della chiave compreso tra a e b e la lunghezza
+ * della stringa minore o uguale a s. Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi dell'Array.
  * La seconda funzione richiede un valore (c), che permette successivamente di richiamare il metodo "print()".
- * Il metodo print() scorre tutta la lista per stamapre ogni coppia che abbia il valore della chiave maggiore o uguale a c.
- * Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi della lista.
+ * Il metodo print() scorre tutto l'Array per stamapre ogni coppia che abbia il valore della chiave maggiore o uguale a c.
+ * Il costo computazionale di questo metodo è O(n), dovendo scorrere tutti gli elementi dell'Array.
  * Per concludere, la funzione che carica tutte le coppie dal file di input ha costo computazionale O(n).
  * 
  * Il costo computazionale della soluzione è quindi O(n).
  * 
- * Altre possibili implementazioni prevedevano l'utilizzo di MinHeap o HashMap, che avrebbero ridotto il costo computazionale di alcune
- * operazioni, ma aumentato il costo dell'inserimento o di altre operazioni nei casi pessimi.
+ * Altre possibili implementazioni prevedevano l'utilizzo di ArrayList, MinHeap o HashMap, con costi computazionali simili e in
+ * alcuni casi maggiori.
  */
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Esercizio2 {
@@ -60,7 +59,7 @@ public class Esercizio2 {
      * Vengono quindi stampate tutte le coppie aventi chiave con valore compreso tra a e b, 
      * e con lunghezza della stringa minore o uguale di s.
      */
-    public static void find(ArrayList<Coppia> dati, int a, int b, int s){
+    public static void find(Coppia[] dati, int a, int b, int s){
         for (Coppia coppia : dati) {
             if(coppia.getX() >= a && coppia.getX() <= b && coppia.getQ().length() <= s){
                 System.out.println(coppia.getX() + " " + coppia.getQ());
@@ -72,7 +71,7 @@ public class Esercizio2 {
      * Viene implementata l'operazione di "stampa di tutte le coppie aventi valori del primo elemento x≥c".
      * Vengono quindi stampate tutte le coppie aventi chiave con valore maggiore della variabile c.
      */
-    public static void print(ArrayList<Coppia> dati, int c){
+    public static void print(Coppia[] dati, int c){
         for (Coppia coppia : dati) {
             if(coppia.getX() >= c){
                 System.out.println(coppia.getX() + " " + coppia.getQ());
@@ -81,20 +80,46 @@ public class Esercizio2 {
     }
     
     /*
-     * Viene effettuato il caricamento dei dati da File, creando una Coppia per ogni riga contenuta nel file dato in input.
-     * Una volta creata la Coppia, viene inserita in un ArrayList.
+     * Viene calcolato il numero di coppie contenute nel File, per permette di dichiarare l'Array con dimensione fissa.
      */
-    public static ArrayList<Coppia> letturaFile(String file){
-        ArrayList<Coppia> dati = new ArrayList<>();
+    public static int dimFile(String file){
+        int dim = 0;
 
         try {
             Scanner s = new Scanner(new File(file));
             
             while(s.hasNextLine()){
+                dim++;
+                s.nextLine();
+            }
+
+            s.close();
+        } catch (Exception e) {
+            System.out.println("Caricamento del file non andato a buon fine!");
+            System.exit(0);
+        }
+
+        return dim;
+    }
+
+    /*
+     * Viene effettuato il caricamento dei dati da File, creando una Coppia per ogni riga contenuta nel file dato in input.
+     * Una volta creata la Coppia, viene inserita in un Array.
+     */
+    public static Coppia[] letturaFile(String file){
+        int dim = dimFile(file);
+        Coppia[] dati = new Coppia[dim];
+
+        try {
+            Scanner s = new Scanner(new File(file));
+            int i = 0;
+
+            while(s.hasNextLine()){
                 String line = s.nextLine();
                 String[] tokens = line.split(" ");
                 Coppia c = new Coppia(Integer.parseInt(tokens[0]), tokens[1]);
-                dati.add(c);
+                dati[i] = c;
+                i++;
             }
 
             s.close();
@@ -112,7 +137,7 @@ public class Esercizio2 {
             System.exit(1);
         }
 
-        ArrayList<Coppia> dati = letturaFile(args[0]);
+        Coppia[] dati = letturaFile(args[0]);
 
         Scanner scanner = new Scanner(System.in);
 
