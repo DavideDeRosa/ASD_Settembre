@@ -5,7 +5,15 @@ Schema di base per ogni esercizio:
     -Altro
 
 -Esercizio1:
-    ciao
+    Ho scelto di implementare la struttura dati richiesta attraverso l'utilizzo di una Tabella Hash con Liste di Trabocco. Avendo una 
+    distribuzione uniforme delle chiavi generate in maniera casuale possiamo suddividere la nostra tabella in intervalli uniformi.
+    La funzione di hashing ci permette di trovare la posizione nella quale inserire la chiave, puntando all'intervallo corretto.
+    Avendo una implementazione con liste di trabocco, ogni intervallo avra' una lista associata. Per garantire, a livello teorico,
+    il numero di accessi medi 'T', possiamo utilizzare la formula (1 + fattore di carico) = T. In questo modo, troviamo il fattore di
+    carico per ogni 'T' data in input. Viene poi effettuata una suddivisione in intervalli uniformi della struttura. Passando al lato
+    'sperimentale', andiamo a calcolare il numero di accessi medi alla struttura attraverso contatori, che ci permettono di verificare
+    la correttezza della struttura, rispettando le richieste della traccia. Infine viene stampato in console l'NMA inerente all'operazione
+    di verifica effettuata sulle 300 chiavi generate in maniera casuale.
 
 -Esercizio2:
     Ho scelto di implementare il tutto attraverso l'utilizzo di un semplice Array di "Coppia", classe creata appositamente per mantenere
