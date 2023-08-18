@@ -8,6 +8,9 @@
  * Per compilare: javac Esercizio3.java
  * Per eseguire: java Esercizio3 <file input>
  * 
+ * File di Input:
+ * Viene utilizzato un File di input come specificato nella consegna, con la presenza dei commenti (ad esempio: # vettore I).
+ * 
  * Considerazioni e richieste extra:
  * Ho scelto di implementare il tutto attraverso l'utilizzo di un algoritmo basato sul Binary Search con la tecnica del Divide-et-Impera,
  * come richiesto dalla traccia. La tecnica del Divide-et-Impera si basa su tre passaggi progressivi:
