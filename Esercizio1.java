@@ -8,6 +8,7 @@
  * Per compilare: javac Esercizio1.java
  * Per eseguire: java Esercizio1 <T>
  * La T richiesta è quella specificata nella consegna, che ci permette di impostare il numero medio di accessi desiderato.
+ * Nota Bene: La T non puo' essere minore o uguale ad 1!
  * 
  * Considerazioni e richieste extra:
  * Ho scelto di implementare la struttura dati richiesta attraverso l'utilizzo di una Tabella Hash con Liste di Trabocco. Avendo una 
@@ -140,7 +141,7 @@ public class Esercizio1 {
     }
 
     public static void main(String[] args) {
-        if(args.length != 1){
+        if(args.length != 1 || Integer.parseInt(args[0]) <= 1){
             System.out.println("Input errato!");
             System.exit(1);
         }
