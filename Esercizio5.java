@@ -8,6 +8,9 @@
  * Per compilare: javac Esercizio5.java
  * Per eseguire: java Esercizio5 <file input>
  * 
+ * File di Input:
+ * Viene utilizzato un File di input come specificato nella consegna, nel suo formato esteso.
+ * 
  * Considerazioni e richieste extra:
  * ciao
  */
@@ -33,7 +36,7 @@ public class Esercizio5 {
     private static class Edge{
         final int src;
         final int dst;
-        final double w;
+        double w;
 
         public Edge(int src, int dst, double w){
             this.src = src;
@@ -87,15 +90,23 @@ public class Esercizio5 {
                 int sourceNode = nodi.get(parts[2]);
                 int targetNode = nodi.get(parts[3]);
                 double preInstalledCapacity = Double.parseDouble(parts[5]);
-
+                
                 if(maxCapacity < preInstalledCapacity){
                     maxCapacity = preInstalledCapacity;
                 }
-                
-                double weight = maxCapacity / preInstalledCapacity;
+                         
+                /*
+                 * Vengono salvati gli archi con un peso momentaneo, per poi effettuare successivamente il calcolo del peso.
+                 */
+                edges.add(new Edge(sourceNode, targetNode, preInstalledCapacity));
+                edges.add(new Edge(targetNode, sourceNode, preInstalledCapacity));
+            }
 
-                edges.add(new Edge(sourceNode, targetNode, weight));
-                edges.add(new Edge(targetNode, sourceNode, weight));
+            /*
+             * Viene effettuato il calcolo corretto del peso per ogni arco.
+             */
+            for (Edge e : edges) {
+                e.w = maxCapacity / e.w;
             }
 
             /*

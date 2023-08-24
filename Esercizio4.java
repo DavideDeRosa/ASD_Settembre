@@ -8,6 +8,9 @@
  * Per compilare: javac Esercizio4.java
  * Per eseguire: java Esercizio4 <file input>
  * 
+ * File di Input:
+ * Viene utilizzato un File di input come specificato nella consegna, nel suo formato esteso.
+ * 
  * Considerazioni e richieste extra:
  * ciao
  */
@@ -36,7 +39,7 @@ public class Esercizio4 {
     private static class Edge{
         final int src;
         final int dst;
-        final double w;
+        double w;
 
         public Edge(int src, int dst, double w){
             this.src = src;
@@ -94,10 +97,19 @@ public class Esercizio4 {
                 if(maxCapacity < preInstalledCapacity){
                     maxCapacity = preInstalledCapacity;
                 }
-                
-                double weight = maxCapacity / preInstalledCapacity;
-                edges.add(new Edge(sourceNode, targetNode, weight));
-                edges.add(new Edge(targetNode, sourceNode, weight));
+                         
+                /*
+                 * Vengono salvati gli archi con un peso momentaneo, per poi effettuare successivamente il calcolo del peso.
+                 */
+                edges.add(new Edge(sourceNode, targetNode, preInstalledCapacity));
+                edges.add(new Edge(targetNode, sourceNode, preInstalledCapacity));
+            }
+
+            /*
+             * Viene effettuato il calcolo corretto del peso per ogni arco.
+             */
+            for (Edge e : edges) {
+                e.w = maxCapacity / e.w;
             }
 
             /*
