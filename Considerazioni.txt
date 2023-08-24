@@ -4,7 +4,7 @@ Schema di base per ogni esercizio:
     -Altre possibili implementazioni
     -Altro
 
--Esercizio1:
+-Esercizio1(hash table custom):
     Ho scelto di implementare la struttura dati richiesta attraverso l'utilizzo di una Tabella Hash con Liste di Trabocco. Avendo una 
     distribuzione uniforme delle chiavi generate in maniera casuale possiamo suddividere la nostra tabella in intervalli uniformi.
     La funzione di hashing ci permette di trovare la posizione nella quale inserire la chiave, puntando all'intervallo corretto.
@@ -15,7 +15,7 @@ Schema di base per ogni esercizio:
     la correttezza della struttura, rispettando le richieste della traccia. Infine viene stampato in console l'NMA inerente all'operazione
     di verifica effettuata sulle 300 chiavi generate in maniera casuale.
 
--Esercizio2:
+-Esercizio2(array):
     Ho scelto di implementare il tutto attraverso l'utilizzo di un semplice Array di "Coppia", classe creata appositamente per mantenere
     i dati inerenti alla coppia. Una volta caricate le diverse coppie dal file di input, viene mostrato all'utente un elenco di funzioni.
     La prima funzione richiede tre valori (a, b, s), che permettono successivamente di richiamare il metodo "find()". 
