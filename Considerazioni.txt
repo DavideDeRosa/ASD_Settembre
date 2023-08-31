@@ -49,7 +49,27 @@ Schema di base per ogni esercizio:
     tecnica del Divide-et-Impera, pertanto è stata scartata a priori.
 
 -Esercizio4(Bellman-Ford):
-    ciao
+    Ho scelto di implementare questo esercizio seguendo le richieste della traccia. Prima di tutto viene letto il File contenente
+    la rete di comunicazione (il nostro grafo). Una volta creato il grafo, tramite l'utilizzo di una LinkedList, viene utilizzato
+    l'algoritmo di Bellman-Ford per calcolare il cammino di costo minimo da tutti i nodi verso tutti i nodi.
+    Per questo algoritmo, è fondamentale che non ci siano cicli di peso negativi. Archi di costo negativo sono invece accettati.
+    
+    L'algoritmo di Bellman-Ford si basa principalmente su due principi:
+        -La condizione di Bellman: per ogni arco (u,v) e per ogni vertice 's', vale la seguente disuguaglianza: d_sv <= d_su + w(u,v).
+        -La tecnica del rilassamento: si suppone di avere una stima della lunghezza del cammino minimo tra 's' e 'v', e che sia
+        D_sv >= d_sv. Vengono quindi effettuati dei passi di 'rilassamento', riducendo progressivamente la stima 'D' finchè si ha
+        che D_sv = d_sv. Viene quindi utilizzata la condizione: if(D_su + w(u,v) < D_sv) then D_sv = D_su + w(u,v).
+    
+    Basandosi su queste due tecniche, Bellman-Ford esegue due passaggi:
+        -ad ogni passo vengono considerati tutti gli archi 'm' del grafo effettuando un rilassamento.
+        -dopo 'n - 1' iterazioni si è certi della corretta costruzione del cammino di costo minimo.
+
+    Il costo computazionale dell'algoritmo di Bellman-Ford è di O(n * m), con 'n' numero di nodi e 'm' numero di archi.
+    Il costo della lettura del File è minore del costo di Bellman-Ford, essendo O(n + m + m), ottenendo O(n + m).
+
+    Un altra possibile implementazione per trovare il cammino di costo minimo sarebbe stato l'utilizzo dell'algoritmo di Dijkstra,
+    che non accetta archi con peso negativo. In questo specifico caso non sarebbe stato un problema, e avrebbe portato il costo
+    computazionale ad O(m * log n).
 
 -Esercizio5(Floyd-Warshall):
     ciao
