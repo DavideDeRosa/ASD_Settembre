@@ -72,7 +72,26 @@ Schema di base per ogni esercizio:
     computazionale ad O(m * log n).
 
 -Esercizio5(Floyd-Warshall):
-    ciao
+    Ho scelto di implementare questo esercizio attraverso l'utilizzo dell'algoritmo di Floyd-Warshall, rispettando la richiesta
+    della traccia di utilizzare un algoritmo basato sulla programmazione dinamica. Prima di tutto viene letto il File contenente
+    la rete di comunicazione (il nostro grafo). Una volta creato il grafo, tramite l'utilizzo di una LinkedList, viene utilizzato
+    l'algoritmo di Floyd-Warshall per calcolare il cammino di costo minimo da tutti i nodi verso tutti i nodi.
+    Per questo algoritmo, è fondamentale che non ci siano cicli di peso negativi. Archi di costo negativo sono invece accettati.
+
+    Viene inizializzata la matrice delle distanze, ponendo una distanza uguale a '0' se i nodi sono uguali altrimenti '+infinito'.
+    Successivamente per ogni coppia di nodi viene impostata la distanza tra i due nodi senza passare per nodi intermedi.
+    Ipotizziamo un cammino dal nodo 'u' al nodo 'v'. E' possibile andare da 'u' a 'v' usando solo nodi intermedi nell'intervallo
+    '1...k' in due modi:
+        -evitando di passare per il nodo 'k'. In questo caso la distanza è D_uv.
+        -passando per il nodo 'k'. In questo caso la distanza è D_uk + D_kv.
+    
+    Infatti, come possiamo notare anche nel codice, la condizione principale è la seguente: D_uv = min(D_uv, D_uk + D_kv).
+
+    Per quanto riguarda la stampa del cammino minimo, viene utilizzata una matrice dei successori 'next'. Ipotizziamo un
+    'next[u][v]', in questo caso darebbe il secondo nodo attraversato dal cammino di costo minimo che va da 'u' a 'v'.
+
+    Il costo computazionale dell'algoritmo di Floyd-Warshall è di O(n^3), con 'n' numero di nodi.
+    Il costo della lettura del File è minore del costo di Floyd-Warshall, essendo O(n + m + m), ottenendo O(n + m).
 
 --------------------------------------------------------------------------------------------------------------------------------------
 Versioni vecchie o sbagliate:
