@@ -80,7 +80,7 @@ public class Esercizio3 {
         Locale.setDefault(Locale.US);
 
         if(args.length != 1){
-            System.out.println("Input errato!");
+            System.out.println("Input errato! - Utilizzo: java Esercizio3 <file input>");
             System.exit(1);
         }
         

@@ -26,6 +26,7 @@
  * Basandosi su queste due tecniche, Bellman-Ford esegue due passaggi:
  *      -ad ogni passo vengono considerati tutti gli archi 'm' del grafo effettuando un rilassamento.
  *      -dopo 'n - 1' iterazioni si è certi della corretta costruzione del cammino di costo minimo.
+ * 
  * Il costo computazionale dell'algoritmo di Bellman-Ford è di O(n * m), con 'n' numero di nodi e 'm' numero di archi.
  * Il costo della lettura del File è minore del costo di Bellman-Ford, essendo O(n + m + m), ottenendo O(n + m).
  * 
@@ -216,7 +217,7 @@ public class Esercizio4 {
 
     public static void main(String[] args) {
         if(args.length != 1){
-            System.out.println("Input errato!");
+            System.out.println("Input errato! - Utilizzo: java Esercizio4 <file input>");
             System.exit(0);
         }
 
